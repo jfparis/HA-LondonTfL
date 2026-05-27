@@ -78,7 +78,10 @@ def _parse_letter_page(html_content: str) -> dict[str, str]:
                 result = {}
                 for data_row in table[i + 1:]:
                     if len(data_row) > max(crs_idx, tiploc_idx):
-                        tiploc = data_row[tiploc_idx].strip()
+                        # Cell may contain extra text (e.g. "PETSWD\r\nPETTSWD✖Original code")
+                        # when railwaycodes.org.uk annotates a code change; take first token only.
+                        raw_tiploc = data_row[tiploc_idx].strip()
+                        tiploc = raw_tiploc.split()[0] if raw_tiploc else ""
                         crs = data_row[crs_idx].strip()
                         if tiploc and crs:
                             result[tiploc] = crs
