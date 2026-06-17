@@ -17,7 +17,7 @@ _LOGGER = logging.getLogger(__name__)
 
 async def fetch(session, url):
     try:
-        with async_timeout.timeout(15):
+        async with async_timeout.timeout(15):
             async with session.get(
                 url, headers={"Accept": "application/json"}
             ) as response:
