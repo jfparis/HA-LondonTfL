@@ -161,7 +161,7 @@ class LondonTfLConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 }
             ),
             errors=errors,
-            description_placeholders={"registration_url": "https://realtime.nationalrail.co.uk/OpenLDBWSRegistration/Registration"},
+            description_placeholders={"registration_url": "https://www.nationalrail.co.uk/developers/darwin-data-feeds"},
         )
 
 
@@ -318,7 +318,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 }
             ),
             errors=errors,
-            description_placeholders={"registration_url": "https://realtime.nationalrail.co.uk/OpenLDBWSRegistration/Registration"},
+            description_placeholders={"registration_url": "https://www.nationalrail.co.uk/developers/darwin-data-feeds"},
         )
 
     # ── Edit stop ─────────────────────────────────────────────────────────────
